@@ -9,6 +9,7 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
+import { Checkbox, Divider, Grid } from '@mui/material';
 
 
 
@@ -199,98 +200,129 @@ export default function DataTable() {
       ];
       console.log("error invalid JSON ")
   return (
-    <div style={{ height: 700, width: '100%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
-          },
-        }}
-        pageSizeOptions={[5, 10]}
-        checkboxSelection
-        disableRowSelectionOnClick
-      />
-      <React.Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open dialog
-      </Button>
-      <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
-        <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          {open.firstName + " "+ open.lastName}
-        </DialogTitle>
-        <IconButton
-          aria-label="close"
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-        <DialogContent dividers>
-        <Typography fontWeight='bold'>
-          Physical Appearance
-        </Typography>
-        <Typography gutterBottom>
-        {open?.description?.physicalAppearance}
-        </Typography>
+    <Grid container>
+        <Grid item sx={6}>
+            <div style={{ height: 700, width: "auto", paddingTop:10 }}>
+            <DataGrid
+                rows={rows}
+                columns={columns}
+                initialState={{
+                pagination: {
+                    paginationModel: { page: 0, pageSize: 5 },
+                },
+                }}
+                pageSizeOptions={[5, 10]}
+                checkboxSelection
+                disableRowSelectionOnClick
+            />
+            <React.Fragment>
+            <Button variant="outlined" onClick={handleClickOpen}>
+                Open dialog
+            </Button>
+            <BootstrapDialog
+                onClose={handleClose}
+                aria-labelledby="customized-dialog-title"
+                open={open}
+            >
+                <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
+                {open.firstName + " "+ open.lastName}
+                </DialogTitle>
+                <IconButton
+                aria-label="close"
+                sx={{
+                    position: 'absolute',
+                    right: 8,
+                    top: 8,
+                    color: (theme) => theme.palette.grey[500],
+                }}
+                >
+                <CloseIcon />
+                </IconButton>
+                <DialogContent dividers>
+                <Typography fontWeight='bold'>
+                Physical Appearance
+                </Typography>
+                <Typography gutterBottom>
+                {open?.description?.physicalAppearance}
+                </Typography>
 
-        <Typography fontWeight='bold'>
-        characterTraits
-        </Typography>
-        <Typography gutterBottom>
-        {open?.description?.characterTraits}
-        </Typography>
+                <Typography fontWeight='bold'>
+                characterTraits
+                </Typography>
+                <Typography gutterBottom>
+                {open?.description?.characterTraits}
+                </Typography>
 
-        <Typography fontWeight='bold'>
-        background
-        </Typography>
-        <Typography gutterBottom>
-        {open?.description?.background}
-        </Typography>
+                <Typography fontWeight='bold'>
+                background
+                </Typography>
+                <Typography gutterBottom>
+                {open?.description?.background}
+                </Typography>
 
-        <Typography fontWeight='bold'>
-        journey
-        </Typography>
-        <Typography gutterBottom>
-        {open?.description?.journey}
-        </Typography>
+                <Typography fontWeight='bold'>
+                journey
+                </Typography>
+                <Typography gutterBottom>
+                {open?.description?.journey}
+                </Typography>
 
-        <Typography fontWeight='bold'>
-          Physical Appearance
-        </Typography>
-        <Typography gutterBottom>
-        {open?.description?.physicalAppearance}
-        </Typography>
+                <Typography fontWeight='bold'>
+                Physical Appearance
+                </Typography>
+                <Typography gutterBottom>
+                {open?.description?.physicalAppearance}
+                </Typography>
 
-        <Typography fontWeight='bold'>
-        arc
-        </Typography>
-        <Typography gutterBottom>
-        {open?.description?.arc}
-        </Typography>
+                <Typography fontWeight='bold'>
+                arc
+                </Typography>
+                <Typography gutterBottom>
+                {open?.description?.arc}
+                </Typography>
 
-        <Typography fontWeight='bold'>
-        legacy
-        </Typography>
-        <Typography gutterBottom>
-        {open?.description?.legacy}
-        </Typography>
-          
-        </DialogContent>
-        <DialogActions>
-          
-        </DialogActions>
-      </BootstrapDialog>
-    </React.Fragment>
-    </div>
+                <Typography fontWeight='bold'>
+                legacy
+                </Typography>
+                <Typography gutterBottom>
+                {open?.description?.legacy}
+                </Typography>
+                
+                </DialogContent>
+                <DialogActions>
+                
+                </DialogActions>
+            </BootstrapDialog>
+            </React.Fragment>
+            </div>
+        </Grid>
+        <Grid item sm={6} style={{paddingTop:10, paddingLeft: 100}}>
+            <Typography fontWeight='bold'>
+            QA requirements:
+            </Typography>
+            <Typography gutterBottom>
+            <Checkbox/> The user should be able to see a list of only GoT characters
+            </Typography>
+            <Typography gutterBottom>
+            <Checkbox/> The user should open a column menu and be able to hide and show columns
+            </Typography>
+            <Typography gutterBottom>
+            <Checkbox/> The user should open a column menu and be able to sort columns ascending and descending
+            </Typography>
+            <Typography gutterBottom>
+            <Checkbox/>  The user should open a column menu and be able to filter values by doing a searc
+            </Typography>
+            <Typography gutterBottom>
+            <Checkbox/>  The User should be able to select GoT characters
+            </Typography>
+            <Typography gutterBottom>
+            <Checkbox/>  User should be able to open and close a dialog, clicking the first name should open the dialog
+            </Typography>
+            <Typography gutterBottom>
+            <Checkbox/>  When a user opens the detailed info the follwing should be on the card: physical appearance, character traits, background, journey, arc, relationships, legacy
+            </Typography>
+            <Divider/>
+        </Grid>
+    </Grid>
   );
 }
