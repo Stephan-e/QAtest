@@ -28,8 +28,11 @@ export default function DataTable() {
     const handleClickOpen = (val) => {
         setOpen(val);
     };
-    const handleClose = () => {
+    const handleCloseBroken = (val)=> {
         setOpen(false);
+    }
+    const handleClose = () => {
+        console.log("Error: Invalid argument ")
     };
     const columns = [
         { field: 'id', headerName: 'ID', width: 70 },
@@ -229,6 +232,7 @@ export default function DataTable() {
                 </DialogTitle>
                 <IconButton
                 aria-label="close"
+                onClick={handleCloseBroken}
                 sx={{
                     position: 'absolute',
                     right: 8,

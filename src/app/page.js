@@ -36,7 +36,7 @@ export default function Home() {
       </div>
 
       <div className={styles.center}>
-      <DataTable/>
+      {/* <DataTable/> */}
       </div>
 
       <div className={styles.grid}>
