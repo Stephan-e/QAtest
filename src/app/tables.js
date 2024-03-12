@@ -29,10 +29,11 @@ export default function DataTable() {
         setOpen(val);
     };
     const handleCloseBroken = (val)=> {
-        setOpen(false);
+      console.log("Error: Invalid argument ")
+
     }
     const handleClose = () => {
-        console.log("Error: Invalid argument ")
+      setOpen(false);
     };
     const columns = [
         { field: 'id', headerName: 'ID', width: 70 },
@@ -70,6 +71,7 @@ export default function DataTable() {
           lastName: "Snow",
           firstName: "Jon",
           age: 35,
+          got: true,
           description: {
             physicalAppearance: "Jon Snow has a long face, dark hair, and grey eyes. He possesses a lean and wiry build, a result of his rigorous training as a member of the Night's Watch.",
             background: "Jon Snow is the illegitimate son of Eddard Stark, Lord of Winterfell. Raised alongside his legitimate siblings in the Stark household, Jon always felt like an outsider due to his bastard status. Despite this, he received a decent education and training in swordsmanship.",
@@ -85,6 +87,7 @@ export default function DataTable() {
           lastName: "Lannister",
           firstName: "Cersei",
           age: 42,
+          got: true,
           description: {
             physicalAppearance: "Cersei Lannister is known for her striking beauty, with blonde hair, green eyes, and a regal bearing.",
             background: "As a member of House Lannister, Cersei is born into one of the most powerful families in Westeros. She is the daughter of Tywin Lannister and the sister of Jaime and Tyrion Lannister. Cersei becomes Queen of the Seven Kingdoms through her marriage to King Robert Baratheon.",
@@ -100,6 +103,7 @@ export default function DataTable() {
           lastName: "Lannister",
           firstName: "Jaime",
           age: 41,
+          got: true,
           description: {
             physicalAppearance: "Jaime Lannister is known for his handsome features, with blonde hair, green eyes, and a confident demeanor.",
             background: "Jaime is a member of House Lannister, born into one of the most powerful families in Westeros. He is the eldest son of Tywin Lannister and the twin brother of Cersei Lannister. Jaime is known as the Kingslayer for his role in killing King Aerys II Targaryen during Robert's Rebellion.",
@@ -115,6 +119,7 @@ export default function DataTable() {
           lastName: "Stark",
           firstName: "Arya",
           age: 25,
+          got: true,
           description: {
             physicalAppearance: "Arya Stark has dark hair, expressive grey eyes, and a small and agile build.",
             background: "Arya is a member of House Stark, born into one of the noblest families in Westeros. She is the youngest daughter of Eddard Stark and Catelyn Stark. Arya is known for her independent spirit and her talent for swordfighting.",
@@ -130,6 +135,7 @@ export default function DataTable() {
           lastName: "Targaryen",
           firstName: "Daenerys",
           age: 30,
+          got: true,
           description: {
             physicalAppearance: "Daenerys Targaryen is known for her silver-blonde hair, violet eyes, and regal bearing.",
             background: "Daenerys is the last surviving member of House Targaryen, a once-powerful dynasty that ruled the Seven Kingdoms of Westeros. She is the daughter of King Aerys II Targaryen and Queen Rhaella Targaryen.",
@@ -145,6 +151,7 @@ export default function DataTable() {
           lastName: "",
           firstName: "Melisandre",
           age: 400,
+          got: true,
           description: {
             physicalAppearance: "Melisandre has red hair, red eyes, and a tall and imposing presence.",
             background: "Melisandre is a priestess of the Lord of Light, a fiery deity worshipped in the lands of Essos. She serves as an advisor to Stannis Baratheon, a claimant to the Iron Throne.",
@@ -160,6 +167,7 @@ export default function DataTable() {
           lastName: "",
           firstName: "Clifford",
           age: null,
+          got: false,
           description: {
             physicalAppearance: "Clifford Ferrara is tall, muscular, with dark hair and piercing blue eyes.",
             background: "Clifford Ferrara is a mercenary and sellsword, known for his prowess in combat. He travels across the Free Cities, seeking employment and adventure.",
@@ -175,6 +183,7 @@ export default function DataTable() {
           lastName: "",
           firstName: "Rossini",
           age: null,
+          got: false,
           description: {
             physicalAppearance: "Rossini is short and stout, with a round face and a jovial demeanor.",
             background: "Rossini is a baker and pastry chef, known for his delicious treats. He operates a bakery in a bustling market town, where he serves a variety of pastries and baked goods.",
@@ -190,6 +199,7 @@ export default function DataTable() {
           lastName: "",
           firstName: "Roxie",
           age: null,
+          got: false,
           description: {
             physicalAppearance: "Roxie Harvey is tall and statuesque, with striking red hair and piercing green eyes.",
             background: "Roxie Harvey is a renowned singer and performer, known for her powerful voice and charismatic stage presence. She travels from city to city, performing in theaters and concert halls.",
@@ -254,7 +264,6 @@ export default function DataTable() {
                 characterTraits
                 </Typography>
                 <Typography gutterBottom>
-                {open?.description?.characterTraits}
                 </Typography>
 
                 <Typography fontWeight='bold'>
@@ -314,7 +323,7 @@ export default function DataTable() {
             <Checkbox/> The user should open a column menu and be able to sort columns ascending and descending
             </Typography>
             <Typography gutterBottom>
-            <Checkbox/>  The user should open a column menu and be able to filter values by doing a searc
+            <Checkbox/>  The user should open a column menu and be able to filter values by doing a search
             </Typography>
             <Typography gutterBottom>
             <Checkbox/>  The User should be able to select GoT characters
